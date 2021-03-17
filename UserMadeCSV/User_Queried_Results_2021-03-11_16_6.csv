@@ -1,5 +1,0 @@
-Distributor,Store_Front,Delivery_ID,Order_Status,Merch_Price,Cubes,Weight,Pieces,Notes,Time_Received,Time_Pickup,Time_Drop_Off,Driver,Truck,Rate,Min,Rate_Notes
-test_distributor,store_1,1, Picked up,3.0,23.0,231.0,324.0,null,null,null,null,Fred,fred,0.4,200.0,null
-test_distributor,store_1,2, Order Complete,145.35,21.1,23.5,2.0,null,2021-01-01 00:00:00,2021-03-24 00:00:00,2021-03-24 00:00:00,Fred,fred,null,null,null
-test_distributor,store_1,3, Order Complete,145.35,21.1,23.5,2.0,null,2021-01-01 00:00:00,2021-03-24 00:00:00,2021-03-24 00:00:00,Fred,fred,null,null,null
-test_distributor,store_1,4, Order Complete,145.35,21.1,23.5,2.0,null,2021-01-01 00:00:00,2021-03-24 00:00:00,2021-03-24 00:00:00,Fred,fred,null,null,null

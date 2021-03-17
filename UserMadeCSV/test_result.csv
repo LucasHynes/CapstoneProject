@@ -1,8 +1,0 @@
-Distributor,Store_Front,Delivery_ID,Order_Status,Merch_Price,Cubes,Weight,Pieces,Notes,Truck,Rate,Min,Rate_Notes
-test_distributor,store_1,1, Picked up,3.0,23.0,231.0,324.0,null,fred,0.4,200.0,null
-test_distributor,store_1,2, Order Complete,145.35,21.1,23.5,2.0,null,fred,null,null,null
-test_distributor,store_1,3, Order Complete,145.35,21.1,23.5,2.0,null,fred,null,null,null
-test_distributor,store_1,4, Order Complete,145.35,21.1,23.5,2.0,null,fred,null,null,null
-test_distributor,store_1,5, Order Complete,435.67,231.2,463.45,-1.0,null,fred,null,null,null
-test_distributor,test,6, Order Complete,434.4,256.22,-1.0,45.0,null,fred,null,null,null
-test_distributor,IsellStuff,7, Order Complete,1365.3,-1.0,574.0,32.0,null,fred,null,null,null
