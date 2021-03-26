@@ -1,6 +1,7 @@
 package FormFiles;
 
 import FormFiles.AddDatabaseForms.*;
+import FormFiles.SelectObjectForms.SelectTruckForm;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -239,38 +240,30 @@ public class Main extends Application {
         addDriverButton.setPrefHeight(40);
 
         //button to add a truck to the database
-        Button addTruckButton = new Button("Add Truck");
+        Button selectTruckButton = new Button("Select Truck");
 
         //event handle for the button
-        EventHandler<MouseEvent> addTruckEvent = e -> {
+        EventHandler<MouseEvent> selectTruckEvent = e -> {
 
             //class instance to show user the truck form to add truck to database
-            AddTruckForm tf = new AddTruckForm();
+            SelectTruckForm tf = new SelectTruckForm();
 
             //new stage to launch the next window
             Stage s = new Stage();
 
-            //attempts to set the scene with the returned form
-            try {
-                s.setScene(tf.form());
-
-            } catch (SQLException throwables) {
-
-                //displays errors encountered with details
-                new ErrorWindow(new Stage(), String.valueOf(throwables.getErrorCode()), throwables.getMessage());
-            }
+            s.setScene(tf.form());
 
             //sets the title for the page and displays
-            s.setTitle("Add Truck");
+            s.setTitle("Select Truck");
             s.showAndWait();
         };
 
         //applies the event handle to the button
-        addTruckButton.addEventHandler(MouseEvent.MOUSE_CLICKED, addTruckEvent);
+        selectTruckButton.addEventHandler(MouseEvent.MOUSE_CLICKED, selectTruckEvent);
 
         //setting for the button design
-        addTruckButton.setPrefWidth(240);
-        addTruckButton.setPrefHeight(40);
+        selectTruckButton.setPrefWidth(240);
+        selectTruckButton.setPrefHeight(40);
 
         //button to add a rate to the database
         Button addRateButton = new Button("Add Rate");
@@ -316,7 +309,7 @@ public class Main extends Application {
         gp.add(addLocationButton, 1, 1, 1, 1);
         gp.add(reportButton, 0, 2, 1, 1);
         gp.add(addDriverButton, 1, 2, 1, 1);
-        gp.add(addTruckButton, 0, 3, 1, 1);
+        gp.add(selectTruckButton, 0, 3, 1, 1);
         gp.add(addRateButton, 1, 3, 1, 1);
 
         //sets the spacing and pading for the grid pane

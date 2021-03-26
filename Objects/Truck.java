@@ -13,7 +13,7 @@ public class Truck {
     private String truck_name;
     private double avg_time_per_dist;
     private Driver driver;
-
+    
     /**
      * The constructor for the driver class
      *
@@ -27,6 +27,14 @@ public class Truck {
         this.truck_id = truck_id;
         this.truck_name = truck_name;
         this.avg_time_per_dist = avg_time_per_dist;
+    }
+
+    public String getDriver_name() {
+        return getDriver().getDriver_name();
+    }
+
+    public void setDriver_name(String driver_name) {
+        this.driver.setDriverName(driver_name);
     }
 
     /**

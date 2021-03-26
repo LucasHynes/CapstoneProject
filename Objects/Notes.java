@@ -14,6 +14,10 @@ package Objects;
  */
 public class Notes {
 
+    /**
+     *
+     */
+    private static final String UNUSED = "unused";
     //definition of the internal variable values with defaults defined
     private int notes_id;
     private String note;
@@ -76,7 +80,7 @@ public class Notes {
     /**
      * @param notes_id sets to the id of the note
      */
-    @SuppressWarnings("unused")
+    @SuppressWarnings(UNUSED)
     public void setNotes_id(int notes_id) {
         this.notes_id = notes_id;
     }
@@ -105,7 +109,7 @@ public class Notes {
     /**
      * @param distributor_id sets to the id of the distributor
      */
-    @SuppressWarnings("unused")
+    @SuppressWarnings(UNUSED)
     public void setDistributor_id(int distributor_id) {
         this.distributor_id = distributor_id;
     }
@@ -120,7 +124,7 @@ public class Notes {
     /**
      * @param store_front_id sets to the id value of the store front
      */
-    @SuppressWarnings("unused")
+    @SuppressWarnings(UNUSED)
     public void setStore_front_id(int store_front_id) {
         this.store_front_id = store_front_id;
     }
@@ -128,7 +132,7 @@ public class Notes {
     /**
      * @return the id of the truck value
      */
-    @SuppressWarnings("unused")
+    @SuppressWarnings(UNUSED)
     public int getTruck_id() {
         return truck_id;
     }
@@ -136,7 +140,7 @@ public class Notes {
     /**
      * @param truck_id sets the value to the id of the truck
      */
-    @SuppressWarnings("unused")
+    @SuppressWarnings(UNUSED)
     public void setTruck_id(int truck_id) {
         this.truck_id = truck_id;
     }
@@ -144,7 +148,7 @@ public class Notes {
     /**
      * @return the id of the driver
      */
-    @SuppressWarnings("unused")
+    @SuppressWarnings(UNUSED)
     public int getDriver_id() {
         return driver_id;
     }
@@ -152,7 +156,7 @@ public class Notes {
     /**
      * @param driver_id sets the value to the id of the driver
      */
-    @SuppressWarnings("unused")
+    @SuppressWarnings(UNUSED)
     public void setDriver_id(int driver_id) {
         this.driver_id = driver_id;
     }
