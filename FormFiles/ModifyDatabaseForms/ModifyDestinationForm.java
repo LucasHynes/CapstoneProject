@@ -6,12 +6,13 @@ import Database.DatabaseAccess;
 import FormFiles.ErrorWindow;
 import Objects.Distributor;
 import Objects.StoreFront;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import jdk.internal.org.jline.terminal.MouseEvent.Button;
 
 /**
  * This class is used to facilitate the ability of the user to modify a store or distributor and then add back

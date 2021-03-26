@@ -5,7 +5,6 @@ import Objects.Driver;
 import Objects.*;
 import Scheduling.ScheduleChartObject;
 import javafx.stage.Stage;
-import org.jetbrains.annotations.NotNull;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -1183,7 +1182,7 @@ public class DatabaseAccess {
      * @param d the distributor object to add to the database
      * @throws SQLException handles invalid data input
      */
-    public void set_distributor(@NotNull Distributor d) throws SQLException {
+    public void set_distributor(Distributor d) throws SQLException {
 
         //attempts to connect to the database and pass the query to insert a new distributor
         try (Connection conn = DriverManager.getConnection(url, userName, password);
@@ -1204,7 +1203,7 @@ public class DatabaseAccess {
      * @param d the store front to add
      * @throws SQLException handles invalid data
      */
-    public void set_storeFront(@NotNull StoreFront d) throws SQLException {
+    public void set_storeFront(StoreFront d) throws SQLException {
 
         //attempts to connect to the database and insert the values into the database as a new store front
         try (Connection conn = DriverManager.getConnection(url, userName, password);
