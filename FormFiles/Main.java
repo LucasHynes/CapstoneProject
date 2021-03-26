@@ -1,6 +1,7 @@
 package FormFiles;
 
 import FormFiles.AddDatabaseForms.*;
+import FormFiles.SelectObjectForms.SelectDriverForm;
 import FormFiles.SelectObjectForms.SelectTruckForm;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -213,13 +214,13 @@ public class Main extends Application {
         reportButton.setPrefHeight(40);
 
         //button to add a driver to the database
-        Button addDriverButton = new Button("Add Driver");
+        Button addDriverButton = new Button("Edit Drivers");
 
         //event handle for the button
         EventHandler<MouseEvent> addDriverEvent = e -> {
 
             //class instance for adding the driver to the database
-            AddDriverForm df = new AddDriverForm();
+            SelectDriverForm df = new SelectDriverForm();
 
             //new stage to launch the next window
             Stage s = new Stage();
@@ -228,7 +229,7 @@ public class Main extends Application {
             s.setScene(df.form());
 
             //sets the title for the page and displays
-            s.setTitle("Add Driver");
+            s.setTitle("Select Driver");
             s.showAndWait();
         };
 
@@ -240,7 +241,7 @@ public class Main extends Application {
         addDriverButton.setPrefHeight(40);
 
         //button to add a truck to the database
-        Button selectTruckButton = new Button("Select Truck");
+        Button selectTruckButton = new Button("Edit Trucks");
 
         //event handle for the button
         EventHandler<MouseEvent> selectTruckEvent = e -> {

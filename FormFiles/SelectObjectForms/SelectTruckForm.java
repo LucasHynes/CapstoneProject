@@ -43,7 +43,7 @@ public class SelectTruckForm {
             new ErrorWindow(new Stage(), e.getMessage(), e.getLocalizedMessage());
         }
 
-        Button modifyButton = new Button();
+        Button modifyButton = new Button("Modify Truck");
         
         EventHandler<MouseEvent> modifyEvent = e -> {
             if(truck_select.getSelectionModel().getSelectedItem() != null) {
