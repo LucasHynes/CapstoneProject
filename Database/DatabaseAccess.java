@@ -1602,4 +1602,97 @@ public class DatabaseAccess {
             ps.execute();
         }
     }
+
+    public void updateStoreFront(StoreFront s) throws SQLException {
+        //attempts to connect to the database and insert the query into the orders table to update the status
+        try (Connection conn = DriverManager.getConnection(url, userName, password);
+             PreparedStatement ps = conn.prepareStatement("UPDATE fleetdata.store_front SET Company_Name = \" " +
+                     s.getName() + "\", Address = \"" + s.getAddress() + "\", City = \"" + s.getCity() + 
+                     "\", State = \"" + s.getState() + "\", Long = \"" + s.getLongitude() + "\", Lat = \"" +
+                     s.getLatitude() + "\" WHERE StoreFront_ID = " + s.getStore_front_id() + ";")) {
+
+            //holds the results of the query
+            ps.execute();
+        }
+    }
+
+    public void updateDistributor(Distributor s) throws SQLException {
+        //attempts to connect to the database and insert the query into the orders table to update the status
+        try (Connection conn = DriverManager.getConnection(url, userName, password);
+             PreparedStatement ps = conn.prepareStatement("UPDATE fleetdata.store_front SET Company_Name = \" " +
+                     s.getName() + "\", Address = \"" + s.getAddress() + "\", City = \"" + s.getCity() +
+                     "\", State = \"" + s.getState() + "\", Long = \"" + s.getLongitude() + "\", Lat = \"" +
+                     s.getLatitude() + "\" WHERE Distributor_ID = " + s.getDistributor_id() + ";")) {
+
+            //holds the results of the query
+            ps.execute();
+        }
+    }
+
+    public void update_driver(Driver s) throws SQLException {
+        //attempts to connect to the database and insert the query into the orders table to update the status
+        try (Connection conn = DriverManager.getConnection(url, userName, password);
+             PreparedStatement ps = conn.prepareStatement("UPDATE fleetdata.drivers SET 'Name' = \" " +
+                     s.getDriver_name() + "\" WHERE Driver_ID = " + s.getDriver_id() + ";")) {
+
+            //holds the results of the query
+            ps.execute();
+        }
+    }
+
+    public void update_order(Order o1) throws SQLException {
+        //attempts to connect to the database and insert the query into the orders table to update the status
+        try (Connection conn = DriverManager.getConnection(url, userName, password);
+             PreparedStatement ps = conn.prepareStatement("UPDATE fleetdata.orders SET PK_From_Company = \" " +
+                     o1.getPrimary_distributor_key() + "\", Key_2 = \"" + o1.getSecondary_key() +
+                     "\", Distributor_ID = \"" + o1.getDistributor().getDistributor_id() +"\", StoreFront_ID = \"" +
+                     o1.getStore_front().getStore_front_id() + "\", Status = \"" + o1.getStatus() + "\", Cubes = \"" +
+                     o1.getCubes() + "\", Weight = \"" + o1.getWeight() + "\", Pieces = \"" + o1.getPieces() +
+                     "\", Rate_ID = \"" +  o1.getRate().getRate_id() + "\", Notes = \"" + o1.getNotes() + "\", " +
+                     "Merch_Price = \"" + o1.getMerch_price() + "\", Create_Date = \"" + o1.getReceiveDate() + "\" " +
+                     "WHERE Order_ID = " + o1.getOrder_id() + ";")) {
+
+            //holds the results of the query
+            ps.execute();
+        }
+    }
+
+    public void update_rateSheet(RateSheet rs) throws SQLException {
+        //attempts to connect to the database and insert the query into the orders table to update the status
+        try (Connection conn = DriverManager.getConnection(url, userName, password);
+             PreparedStatement ps = conn.prepareStatement("UPDATE fleetdata.rate_sheet SET Distributor_ID = \" " +
+                     rs.getDistributor_id() + "\", StoreFront_ID = \"" + rs.getStore_front_id() +
+                     "\", Rate = \"" + rs.getRate() +"\", Minimum = \"" + rs.getMinimum() + "\", Notes = \"" +
+                     rs.getNotes() + "\" WHERE Rate_ID = " + rs.getRate_id() + ";")) {
+
+            //holds the results of the query
+            ps.execute();
+        }
+    }
+
+    public void update_receipt(Receipt r) throws SQLException {
+        //attempts to connect to the database and insert the query into the orders table to update the status
+        try (Connection conn = DriverManager.getConnection(url, userName, password);
+             PreparedStatement ps = conn.prepareStatement("UPDATE fleetdata.receipts SET Driver_ID = \" " +
+                     r.getDriver_id() + "\", Company = \"" + r.getCompany() + "\", Amount = \"" + r.getAmount() +
+                     "\", Card_No = \"" + r.getCard_no() + "\", 'Date' = \"" + r.getDate() + "\", City = \"" +
+                     r.getCity() + "\", Sate = \"" + r.getState() + "\", Zip = \"" + r.getZip_code() +
+                     "\", Category = \"" + r.getCategory() + "\" WHERE Receipt_ID = " + r.getReceipt_id() + ";")) {
+
+            //holds the results of the query
+            ps.execute();
+        }
+    }
+
+    public void update_truck(Truck t) throws SQLException{
+        //attempts to connect to the database and insert the query into the orders table to update the status
+        try (Connection conn = DriverManager.getConnection(url, userName, password);
+             PreparedStatement ps = conn.prepareStatement("UPDATE fleetdata.truck_fleet SET Truck_Name = \" " +
+                     t.getTruck_name() + "\", Driver_ID = \"" + t.getDriver().getDriver_id() + "\" WHERE Truck_ID = "
+                     + t.getTruck_id() + ";")) {
+
+            //holds the results of the query
+            ps.execute();
+        }
+    }
 }

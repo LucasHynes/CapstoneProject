@@ -10,7 +10,7 @@ package Objects;
  */
 public class Truck {
     private final int truck_id;
-    private final String truck_name;
+    private String truck_name;
     private double avg_time_per_dist;
     private Driver driver;
 
@@ -98,5 +98,9 @@ public class Truck {
      */
     public void setDriver(Driver driver) {
         this.driver = driver;
+    }
+
+    public void setTruckName(String text) {
+        this.truck_name = text;
     }
 }

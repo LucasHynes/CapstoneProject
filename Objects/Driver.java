@@ -4,7 +4,7 @@ public class Driver {
 
     //internal variables for the class
     private final int driver_id;
-    private final String driver_name;
+    private String driver_name;
     private double avg_time_per_dist;
 
     /**
@@ -60,5 +60,9 @@ public class Driver {
      */
     public void setAvg_time_per_dist(double avg_time_per_dist) {
         this.avg_time_per_dist = avg_time_per_dist;
+    }
+
+    public void setDriverName(String text) {
+        this.driver_name = text;
     }
 }
