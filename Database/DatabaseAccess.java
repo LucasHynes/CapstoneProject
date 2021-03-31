@@ -327,7 +327,6 @@ public class DatabaseAccess {
      * @return the orders
      * @throws SQLException handles the invalid data
      */
-    @SuppressWarnings("unused")
     public ArrayList<Order> get_all_orders() throws SQLException {
         //attempts the connection to the server, calling a SQL statement to retrieve the orders placed,
         // and not yet picked up
