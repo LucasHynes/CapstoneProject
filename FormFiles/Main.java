@@ -2,6 +2,7 @@ package FormFiles;
 
 import FormFiles.AddDatabaseForms.*;
 import FormFiles.SelectObjectForms.SelectDriverForm;
+import FormFiles.SelectObjectForms.SelectOrderForm;
 import FormFiles.SelectObjectForms.SelectTruckForm;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -53,38 +54,30 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
 
         //button for user to add an order to the database
-        Button addOrderButton = new Button("Add Order");
+        Button editOrderButton = new Button("Edit Orders");
 
         //event for the add order button
-        EventHandler<MouseEvent> addOrderEvent = e -> {
+        EventHandler<MouseEvent> editOrderEvent = e -> {
 
             //adds instance of the add order form
-            AddOrderForm of = new AddOrderForm();
+            SelectOrderForm of = new SelectOrderForm();
 
             //new stage to launch the next window
             Stage s = new Stage();
 
-            //attempts to set the scene with the returned form
-            try {
-                s.setScene(of.form());
-
-            } catch (SQLException throwables) {
-
-                //displays errors encountered with details
-                new ErrorWindow(new Stage(), String.valueOf(throwables.getErrorCode()), throwables.getMessage());
-            }
+            s.setScene(of.form());
 
             //sets the title for the page and displays
-            s.setTitle("Add Order");
+            s.setTitle("Edit Order");
             s.showAndWait();
         };
 
         //applies the event handle to the button
-        addOrderButton.addEventHandler(MouseEvent.MOUSE_CLICKED, addOrderEvent);
+        editOrderButton.addEventHandler(MouseEvent.MOUSE_CLICKED, editOrderEvent);
 
         //settings for button design
-        addOrderButton.setPrefWidth(240);
-        addOrderButton.setPrefHeight(40);
+        editOrderButton.setPrefWidth(240);
+        editOrderButton.setPrefHeight(40);
 
         //button to add the receipts to the database
         Button addReceiptButton = new Button("Add Receipt");
@@ -304,7 +297,7 @@ public class Main extends Application {
         GridPane gp = new GridPane();
 
         //adds components to the main form
-        gp.add(addOrderButton, 0,0, 1, 1);
+        gp.add(editOrderButton, 0,0, 1, 1);
         gp.add(addReceiptButton, 1, 0, 1, 1);
         gp.add(scheduleButton, 0, 1, 1, 1);
         gp.add(addLocationButton, 1, 1, 1, 1);

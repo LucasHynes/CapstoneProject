@@ -106,6 +106,8 @@ public class SelectOrderForm {
                 //launches error window to display to the user the problems with the input
                 new ErrorWindow(new Stage(), e1.getMessage(), e1.getLocalizedMessage());
             }
+
+            ((Stage) addOrderButton.getScene().getWindow()).close();
         };
 
         addOrderButton.addEventHandler(MouseEvent.MOUSE_CLICKED, addOrderEvent);
@@ -118,7 +120,7 @@ public class SelectOrderForm {
 
         GridPane gp = new GridPane();
 
-        gp.add(Order_select, 0, 0, 3, 3);
+        gp.add(order_chart, 0, 0, 3, 3);
         gp.add(addOrderButton, 0, 3, 1, 1);
         gp.add(modifyButton, 1, 3, 1, 1);
         gp.add(exitButton, 2, 3, 1, 1);
