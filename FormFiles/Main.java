@@ -3,6 +3,7 @@ package FormFiles;
 import FormFiles.AddDatabaseForms.*;
 import FormFiles.SelectObjectForms.SelectDriverForm;
 import FormFiles.SelectObjectForms.SelectOrderForm;
+import FormFiles.SelectObjectForms.SelectReceiptForm;
 import FormFiles.SelectObjectForms.SelectTruckForm;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -80,38 +81,30 @@ public class Main extends Application {
         editOrderButton.setPrefHeight(40);
 
         //button to add the receipts to the database
-        Button addReceiptButton = new Button("Add Receipt");
+        Button editReceiptButton = new Button("Edit Receipts");
 
         //event for the add receipt button
-        EventHandler<MouseEvent> addReceiptEvent = e -> {
+        EventHandler<MouseEvent> editReceiptEvent = e -> {
 
             //adds instance of the add receipt form
-            AddReceiptForm of = new AddReceiptForm();
+            SelectReceiptForm of = new SelectReceiptForm();
 
             //new stage to launch the next window
             Stage s = new Stage();
 
-            //attempts to set the scene with the returned form
-            try {
-                s.setScene(of.form());
-
-            } catch (SQLException throwables) {
-
-                //displays errors encountered with details
-                new ErrorWindow(new Stage(), String.valueOf(throwables.getErrorCode()), throwables.getMessage());
-            }
+            s.setScene(of.form());
 
             //sets the title for the page and displays
-            s.setTitle("Add Receipt");
+            s.setTitle("Edit Receipts");
             s.showAndWait();
         };
 
         //applies the event handle to the button
-        addReceiptButton.addEventHandler(MouseEvent.MOUSE_CLICKED, addReceiptEvent);
+        editReceiptButton.addEventHandler(MouseEvent.MOUSE_CLICKED, editReceiptEvent);
 
         //settings for the button design
-        addReceiptButton.setPrefWidth(240);
-        addReceiptButton.setPrefHeight(40);
+        editReceiptButton.setPrefWidth(240);
+        editReceiptButton.setPrefHeight(40);
 
         //button to schedule the week and apply to the database
         Button scheduleButton = new Button("Schedule");
@@ -207,10 +200,10 @@ public class Main extends Application {
         reportButton.setPrefHeight(40);
 
         //button to add a driver to the database
-        Button addDriverButton = new Button("Edit Drivers");
+        Button editDriverButton = new Button("Edit Drivers");
 
         //event handle for the button
-        EventHandler<MouseEvent> addDriverEvent = e -> {
+        EventHandler<MouseEvent> editDriverEvent = e -> {
 
             //class instance for adding the driver to the database
             SelectDriverForm df = new SelectDriverForm();
@@ -227,11 +220,11 @@ public class Main extends Application {
         };
 
         //applies the event handle to the button
-        addDriverButton.addEventHandler(MouseEvent.MOUSE_CLICKED, addDriverEvent);
+        editDriverButton.addEventHandler(MouseEvent.MOUSE_CLICKED, editDriverEvent);
 
         //settings for the button design
-        addDriverButton.setPrefWidth(240);
-        addDriverButton.setPrefHeight(40);
+        editDriverButton.setPrefWidth(240);
+        editDriverButton.setPrefHeight(40);
 
         //button to add a truck to the database
         Button selectTruckButton = new Button("Edit Trucks");
@@ -298,11 +291,11 @@ public class Main extends Application {
 
         //adds components to the main form
         gp.add(editOrderButton, 0,0, 1, 1);
-        gp.add(addReceiptButton, 1, 0, 1, 1);
+        gp.add(editReceiptButton, 1, 0, 1, 1);
         gp.add(scheduleButton, 0, 1, 1, 1);
         gp.add(addLocationButton, 1, 1, 1, 1);
         gp.add(reportButton, 0, 2, 1, 1);
-        gp.add(addDriverButton, 1, 2, 1, 1);
+        gp.add(editDriverButton, 1, 2, 1, 1);
         gp.add(selectTruckButton, 0, 3, 1, 1);
         gp.add(addRateButton, 1, 3, 1, 1);
 
