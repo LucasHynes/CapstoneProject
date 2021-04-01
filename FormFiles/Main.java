@@ -1,10 +1,7 @@
 package FormFiles;
 
 import FormFiles.AddDatabaseForms.*;
-import FormFiles.SelectObjectForms.SelectDriverForm;
-import FormFiles.SelectObjectForms.SelectOrderForm;
-import FormFiles.SelectObjectForms.SelectReceiptForm;
-import FormFiles.SelectObjectForms.SelectTruckForm;
+import FormFiles.SelectObjectForms.*;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -253,38 +250,30 @@ public class Main extends Application {
         selectTruckButton.setPrefHeight(40);
 
         //button to add a rate to the database
-        Button addRateButton = new Button("Add Rate");
+        Button editRateButton = new Button("Edit Rates");
 
         //event handle for the button
-        EventHandler<MouseEvent> addRateEvent = e -> {
+        EventHandler<MouseEvent> editRateEvent = e -> {
 
             //create instance of the form to view for the user
-            AddRateForm rf = new AddRateForm();
+            SelectRateForm rf = new SelectRateForm();
 
             //new stage to launch the next window
             Stage s = new Stage();
 
-            //attempts to set the scene with the returned form
-            try {
-                s.setScene(rf.form());
-
-            } catch (SQLException throwables) {
-
-                //displays errors encountered with details
-                new ErrorWindow(new Stage(), String.valueOf(throwables.getErrorCode()), throwables.getMessage());
-            }
+            s.setScene(rf.form());
 
             //sets the title for the page and displays
-            s.setTitle("Add Rate");
+            s.setTitle("Edit Rate");
             s.showAndWait();
         };
 
         //applies the event handle to the button
-        addRateButton.addEventHandler(MouseEvent.MOUSE_CLICKED, addRateEvent);
+        editRateButton.addEventHandler(MouseEvent.MOUSE_CLICKED, editRateEvent);
 
         //setting for the button design
-        addRateButton.setPrefWidth(240);
-        addRateButton.setPrefHeight(40);
+        editRateButton.setPrefWidth(240);
+        editRateButton.setPrefHeight(40);
 
         //grid pane for the layout of the main form
         GridPane gp = new GridPane();
@@ -297,7 +286,7 @@ public class Main extends Application {
         gp.add(reportButton, 0, 2, 1, 1);
         gp.add(editDriverButton, 1, 2, 1, 1);
         gp.add(selectTruckButton, 0, 3, 1, 1);
-        gp.add(addRateButton, 1, 3, 1, 1);
+        gp.add(editRateButton, 1, 3, 1, 1);
 
         //sets the spacing and pading for the grid pane
         gp.setVgap(20);

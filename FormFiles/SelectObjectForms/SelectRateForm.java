@@ -17,7 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-class SelectRateForm {
+public class SelectRateForm {
 
     private DatabaseAccess dba = new DatabaseAccess();
 
