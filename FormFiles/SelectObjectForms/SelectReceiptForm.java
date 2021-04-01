@@ -25,10 +25,39 @@ public class SelectReceiptForm {
     public Scene form() {
         TableView<Receipt> receipt_select = new TableView<>();
 
-        TableColumn<Receipt, String> receipt_col = new TableColumn<>("Receipt Name");
-        receipt_col.setCellValueFactory(new PropertyValueFactory<>("receipt_name"));
+        TableColumn<Receipt, Integer> receipt_col = new TableColumn<>("Receipt ID");
+        receipt_col.setCellValueFactory(new PropertyValueFactory<>("receipt_id"));
+
+        TableColumn<Receipt, Integer> driver_col = new TableColumn<>("Driver ID");
+        driver_col.setCellValueFactory(new PropertyValueFactory<>("driver_id"));
+
+        TableColumn<Receipt, String> company_col = new TableColumn<>("Company");
+        company_col.setCellValueFactory(new PropertyValueFactory<>("company"));
+
+        TableColumn<Receipt, String> category_col = new TableColumn<>("Category");
+        category_col.setCellValueFactory(new PropertyValueFactory<>("category"));
+
+        TableColumn<Receipt, Double> amount_col = new TableColumn<>("Amount");
+        amount_col.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        
+        TableColumn<Receipt, Integer> card_col = new TableColumn<>("Card No");
+        card_col.setCellValueFactory(new PropertyValueFactory<>("card_no"));
+
+        TableColumn<Receipt, String> city_col = new TableColumn<>("City");
+        city_col.setCellValueFactory(new PropertyValueFactory<>("city"));
+
+        TableColumn<Receipt, String> state_col = new TableColumn<>("State");
+        state_col.setCellValueFactory(new PropertyValueFactory<>("state"));
 
         receipt_select.getColumns().add(receipt_col);
+        receipt_select.getColumns().add(driver_col);
+        receipt_select.getColumns().add(company_col);
+        receipt_select.getColumns().add(category_col);
+        receipt_select.getColumns().add(amount_col);
+        receipt_select.getColumns().add(card_col);
+        receipt_select.getColumns().add(city_col);
+        receipt_select.getColumns().add(state_col);
+        
 
         try {
             receipt_select.getItems().addAll(getDba().get_receipts());
@@ -51,7 +80,7 @@ public class SelectReceiptForm {
                 Stage s = new Stage();
                 try {
                     s.setScene(mdf.form(d));
-                    
+
                 } catch (SQLException e1) {
 
                     //launches error window to display to the user the problems with the input
@@ -73,7 +102,14 @@ public class SelectReceiptForm {
             AddReceiptForm adf = new AddReceiptForm();
                 
             Stage s = new Stage();
-            s.setScene(adf.form());
+            try {
+                s.setScene(adf.form());
+
+            } catch (SQLException e1) {
+                
+                    //launches error window to display to the user the problems with the input
+                    new ErrorWindow(new Stage(), e1.getMessage(), e1.getLocalizedMessage());
+            }
             s.show();
 
             //closes active window
