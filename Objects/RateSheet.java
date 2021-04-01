@@ -1,5 +1,9 @@
 package Objects;
 
+import java.sql.SQLException;
+
+import Database.DatabaseAccess;
+
 /**
  * Use this class for defining the rates of the companies. This is the rate of the merchandise that is charged
  * to the store for the cost of the transportation. There is also a minimum value for the rate for what the
@@ -18,6 +22,9 @@ public class RateSheet {
     private double rate;
     private double minimum;
     private String notes;
+    private String d;
+    private String s;
+    private final DatabaseAccess dba = new DatabaseAccess();
 
     /**
      * This is the constructor for the rate sheet to see how much the freight will cost to deliver
@@ -38,6 +45,18 @@ public class RateSheet {
         this.rate = rate;
         this.minimum = minimum;
         this.notes = notes;
+    }
+
+    public DatabaseAccess getDba() {
+        return dba;
+    }
+
+    public String getS() throws SQLException {
+        return getDba().get_store_front_based_id(getStore_front_id()).getName();
+    }
+
+    public String getD() throws SQLException {
+        return getDba().get_distributor_based_id(getDistributor_id()).getName();
     }
 
     /**
