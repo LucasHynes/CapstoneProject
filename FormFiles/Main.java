@@ -136,10 +136,10 @@ public class Main extends Application {
         scheduleButton.setPrefHeight(40);
 
         //button to add the location to the database
-        Button addLocationButton = new Button("Add Location");
+        Button editLocationButton = new Button("Edit Locations");
 
         //event for adding the location
-        EventHandler<MouseEvent> addLocationEvent = e -> {
+        EventHandler<MouseEvent> editLocationEvent = e -> {
 
             //class instance for adding a destination to the database
             AddDestinationForm of = new AddDestinationForm();
@@ -156,11 +156,11 @@ public class Main extends Application {
         };
 
         //applies the event handle to the button
-        addLocationButton.addEventHandler(MouseEvent.MOUSE_CLICKED, addLocationEvent);
+        editLocationButton.addEventHandler(MouseEvent.MOUSE_CLICKED, editLocationEvent);
 
         //settings for the button design
-        addLocationButton.setPrefWidth(240);
-        addLocationButton.setPrefHeight(40);
+        editLocationButton.setPrefWidth(240);
+        editLocationButton.setPrefHeight(40);
 
         //button to view and download reports from the database
         Button reportButton = new Button("Reports");
@@ -282,7 +282,7 @@ public class Main extends Application {
         gp.add(editOrderButton, 0,0, 1, 1);
         gp.add(editReceiptButton, 1, 0, 1, 1);
         gp.add(scheduleButton, 0, 1, 1, 1);
-        gp.add(addLocationButton, 1, 1, 1, 1);
+        gp.add(editLocationButton, 1, 1, 1, 1);
         gp.add(reportButton, 0, 2, 1, 1);
         gp.add(editDriverButton, 1, 2, 1, 1);
         gp.add(selectTruckButton, 0, 3, 1, 1);
