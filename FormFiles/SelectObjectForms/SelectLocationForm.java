@@ -24,58 +24,56 @@ public class SelectLocationForm {
     private final DatabaseAccess dba = new DatabaseAccess();
 
     public Scene form() throws SQLException {
-        TableView<Object> location_select = new TableView<>();
+        TableView<location> location_select = new TableView<>();
 
-        ArrayList<Object> locations = new ArrayList<>();
+        ArrayList<location> locations = new ArrayList<>();
 
         for(Object o: getDba().get_destinations()){
 
-            Object dest;
+            location dest = new location();
 
             if(o instanceof StoreFront){
-                dest = new Object(){
-                    String location_name = ((StoreFront) o).getName();
-                    String category = "StoreFront";
-                    String state = ((StoreFront) o).getState();
-                };
+                dest.location_name = ((StoreFront) o).getName();
+                dest.category = "StoreFront";
+                dest.state = ((StoreFront) o).getState();
+            
             } else if (o instanceof Distributor) {
-                dest = new Object(){
-                    String location_name = ((Distributor) o).getName();
-                    String category = "Distributor";
-                    String state = ((Distributor) o).getState();
-                };
+                dest.location_name = ((Distributor) o).getName();
+                dest.category = "Distributor";
+                dest.state = ((Distributor) o).getState();
+            
             } else {
-                dest = new Object(){
-                    String location_name = o.getClass().getName();
-                    String category = "Non-Store";
-                    String state = "N/A";
-                };
+                dest.location_name = o.getClass().getName();
+                dest.category = "Non-Store";
+                dest.state = "N/A";
             }
+
+            dest.associatedObject = o;
 
             locations.add(dest);
         }
 
-        TableColumn<Object, String> location_col = new TableColumn<>("Location Name");
+        TableColumn<location, String> location_col = new TableColumn<>("Location Name");
         location_col.setCellValueFactory(new PropertyValueFactory<>("location_name"));
 
-        TableColumn<Object, String> category_col = new TableColumn<>("Category");
+        TableColumn<location, String> category_col = new TableColumn<>("Category");
         category_col.setCellValueFactory(new PropertyValueFactory<>("category"));
 
-        TableColumn<Object, String> state_col = new TableColumn<>("State");
+        TableColumn<location, String> state_col = new TableColumn<>("State");
         state_col.setCellValueFactory(new PropertyValueFactory<>("state"));
 
         location_select.getColumns().add(location_col);
         location_select.getColumns().add(category_col);
         location_select.getColumns().add(state_col);
 
-        location_select.getItems().add(locations);
+        location_select.getItems().addAll(locations);
 
         Button modifyButton = new Button("Modify Location");
         
         EventHandler<MouseEvent> modifyEvent = e -> {
             if(location_select.getSelectionModel().getSelectedItem() != null) {
                 
-                Object d = location_select.getSelectionModel().getSelectedItem();
+                location d = location_select.getSelectionModel().getSelectedItem();
 
                 //launch form to modify selected location
                 ModifyDestinationForm mdf = new ModifyDestinationForm();
@@ -129,4 +127,11 @@ public class SelectLocationForm {
     public DatabaseAccess getDba() {
         return dba;
     }
+}
+
+class location {
+    public String location_name;
+    public String category;
+    public String state;
+    public Object associatedObject;
 }
