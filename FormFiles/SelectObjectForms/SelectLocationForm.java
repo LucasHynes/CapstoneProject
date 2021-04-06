@@ -127,11 +127,11 @@ public class SelectLocationForm {
     public DatabaseAccess getDba() {
         return dba;
     }
-}
-
-class location {
-    public String location_name;
-    public String category;
-    public String state;
-    public Object associatedObject;
+    
+    class location {
+        public String location_name;
+        public String category;
+        public String state;
+        public Object associatedObject;
+    }
 }
