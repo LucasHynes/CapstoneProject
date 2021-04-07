@@ -4,10 +4,13 @@ import Objects.*;
 import Scheduling.ScheduleOptions.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.stage.Stage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import FormFiles.ErrorWindow;
 
 /**
  * This is the object holding the list of activities and orders for the truck while the application
@@ -433,19 +436,27 @@ public class DeliveryList {
 
     public boolean editPickup(ScheduleChartObject sco, int index){
 
-        ArrayList<Object> dl = getDeliveryList();
+        try {
+            ArrayList<Object> dl = getDeliveryList();
 
-        Pickup p = new Pickup(sco.getOrder(), sco.getTime(), sco.getMinutes());
+            Pickup p = new Pickup(sco.getOrder(), sco.getTime(), sco.getMinutes());
 
-        dl.set(index, p);
+            dl.set(index, p);
 
-        setDeliveryList(dl);
+            setDeliveryList(dl);
 
-        ArrayList<ScheduleChartObject> al = get_chart_fill_1();
-        al.set(index, sco);
-        setChart_entries(al);
+            ArrayList<ScheduleChartObject> al = get_chart_fill_1();
+            al.set(index, sco);
+            setChart_entries(al);
+            return true;
 
-        return false;
+        } catch(Exception e) {
+
+            //launches error window with explanation around the nature of the error
+            new ErrorWindow(new Stage(), String.valueOf(e.getLocalizedMessage()), e.getCause().getMessage());
+            
+            return false;
+        }
     }   
 
 }
