@@ -427,6 +427,14 @@ public class ScheduleForm {
         //applies the event to the button
         add_button.addEventHandler(MouseEvent.MOUSE_CLICKED, add_event);
 
+        Button edit_button = new Button("Edit Event");
+
+        EventHandler<MouseEvent> edit_event = e -> {
+          //TODO use to launch new forms based on selection from user.  
+        };
+
+        edit_button.addEventHandler(MouseEvent.MOUSE_CLICKED, edit_event);
+
         //exit button used to escape from the window, going to the main menu and closing the active window (no save)
         Button exit_button = new Button("Exit");
         EventHandler<MouseEvent> exit_event = e -> ((Stage) exit_button.getScene().getWindow()).close();
@@ -1021,5 +1029,9 @@ public class ScheduleForm {
      */
     public void setCurrent_date(LocalDate current_date) {
         this.current_date = current_date;
+    }
+
+    private void insert_into(){
+        //TODO use to order change insert new action.
     }
 }
