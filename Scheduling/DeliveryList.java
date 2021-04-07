@@ -430,4 +430,22 @@ public class DeliveryList {
         //returns the final class value list for the delivery times to be used in the database
         return dt;
     }
+
+    public boolean editPickup(ScheduleChartObject sco, int index){
+
+        ArrayList<Object> dl = getDeliveryList();
+
+        Pickup p = new Pickup(sco.getOrder(), sco.getTime(), sco.getMinutes());
+
+        dl.set(index, p);
+
+        setDeliveryList(dl);
+
+        ArrayList<ScheduleChartObject> al = get_chart_fill_1();
+        al.set(index, sco);
+        setChart_entries(al);
+
+        return false;
+    }   
+
 }
