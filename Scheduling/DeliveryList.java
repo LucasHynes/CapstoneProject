@@ -484,4 +484,31 @@ public class DeliveryList {
         }
     } 
 
+    public boolean editTravel(ScheduleChartObject sco, int index){
+
+        try {
+            ArrayList<Object> dl = getDeliveryList();
+
+            Travel p = new Travel(sco.getOrder().getStore_front(), sco.getOrder().getDistributor(),
+             sco.getData_group_1(), Double.parseDouble(sco.getData_group_2().replace("mi.", "")), 
+             sco.getTime(), sco.getMinutes());
+
+            dl.set(index, p);
+
+            setDeliveryList(dl);
+
+            ArrayList<ScheduleChartObject> al = get_chart_fill_1();
+            al.set(index, sco);
+            setChart_entries(al);
+            return true;
+
+        } catch(Exception e) {
+
+            //launches error window with explanation around the nature of the error
+            new ErrorWindow(new Stage(), String.valueOf(e.getLocalizedMessage()), e.getCause().getMessage());
+            
+            return false;
+        }
+    } 
+
 }
