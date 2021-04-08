@@ -459,4 +459,29 @@ public class DeliveryList {
         }
     }   
 
+    public boolean editDropOff(ScheduleChartObject sco, int index){
+
+        try {
+            ArrayList<Object> dl = getDeliveryList();
+
+            DropOff p = new DropOff(sco.getOrder(), sco.getTime(), sco.getMinutes());
+
+            dl.set(index, p);
+
+            setDeliveryList(dl);
+
+            ArrayList<ScheduleChartObject> al = get_chart_fill_1();
+            al.set(index, sco);
+            setChart_entries(al);
+            return true;
+
+        } catch(Exception e) {
+
+            //launches error window with explanation around the nature of the error
+            new ErrorWindow(new Stage(), String.valueOf(e.getLocalizedMessage()), e.getCause().getMessage());
+            
+            return false;
+        }
+    } 
+
 }
