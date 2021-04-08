@@ -6,6 +6,7 @@ import Objects.Order;
 import Objects.Truck;
 import Scheduling.DeliveryList;
 import Scheduling.LinearRegression;
+import Scheduling.ScheduleChartObject;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -75,12 +76,16 @@ public class EditPickupForm {
 
             //gets the list of orders selected by the user
             ObservableList<Order> list_orders = open_order.getSelectionModel().getSelectedItems();
-
+            ObservableList<Integer> index = open_order.getSelectionModel().getSelectedIndices();
+            int index_count = 0;
             //gets active list in function
             DeliveryList list = getActive_list();
 
             //loops through the selected orders
             for(Order o: list_orders) {
+                int i = index.get(index_count);
+                LocalDate date;
+                int min;
 
                 //attempts to update the status of the order to show that the order has been picked up
                 try {
@@ -123,15 +128,17 @@ public class EditPickupForm {
 
                         //calculates the minutes needed for the pick up based on linear regression
                         //noinspection unchecked
-                        int min_needed = (int) lr.run((
-                                (ArrayList<Double>) p[0]), ((ArrayList<Double>) p[1]), o.getCubes());
+                        int min_needed = (int) lr.run(((ArrayList<Double>) p[0]), ((ArrayList<Double>) p[1]), o.getCubes());
+                        
+                        date = LocalDate.parse("0000-01-01");
+                        min = min_needed;                        
 
-                        //adds the pickup with given values
-                        list.add_pickup(o, LocalDate.parse("0000-01-01"),  min_needed);
+                        
                     } else {
 
                         //adds the default date and the user entered minutes needed
-                        list.add_pickup(o, LocalDate.parse("0000-01-01"), input_int_check(minutes_needed));
+                        date = LocalDate.parse("0000-01-01");
+                        min = input_int_check(minutes_needed);
                     }
                 } else {
 
@@ -161,21 +168,31 @@ public class EditPickupForm {
                                 (ArrayList<Double>) p[0]), ((ArrayList<Double>) p[1]), o.getCubes());
 
                         //adds the pickup with selected time and calculated minutes needed
-                        list.add_pickup(o, time_field.getValue(), min_needed);
+                        date = time_field.getValue();
+                        min = min_needed;
                     }
                     else {
 
-                        //adds the pickup with both user entered values, date and minutes needed
-                        list.add_pickup(o, time_field.getValue(), input_int_check(minutes_needed));
+                        //adds the default date and the user entered minutes needed
+                        date = time_field.getValue();
+                        min = input_int_check(minutes_needed);
                     }
                 }
 
-                //sets the list to the new list with the pickup object added
-                setActive_list(list);
+                //adds the pickup with given values
+                ScheduleChartObject o1 = new ScheduleChartObject(o.getDistributor().getName(),
+                o.getStore_front().getName(), o.getCubes() + "c, " 
+                + o.getPieces() + "p", o.getWeight() + "lbs", 
+                "Pick-up", date, min);
 
-                //closes the active window
-                ((Stage) add_button.getScene().getWindow()).close();
+                list.editPickup(o1, i);
             }
+            
+            //sets the list to the new list with the pickup object added
+            setActive_list(list);
+
+            //closes the active window
+            ((Stage) add_button.getScene().getWindow()).close();
         };
 
         //adds the event to the button
