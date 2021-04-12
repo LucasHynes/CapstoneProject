@@ -3,6 +3,7 @@ package FormFiles;
 import Database.DatabaseAccess;
 import FormFiles.ScheduleForms.AddDropOffForm;
 import FormFiles.ScheduleForms.AddPickupForm;
+import FormFiles.ScheduleForms.EditPickupForm;
 import FormFiles.ScheduleForms.TravelForm;
 import Objects.*;
 import Scheduling.DeliveryList;
@@ -430,7 +431,50 @@ public class ScheduleForm {
         Button edit_button = new Button("Edit Event");
 
         EventHandler<MouseEvent> edit_event = e -> {
-          //TODO use to launch new forms based on selection from user.  
+
+            //node to find the tab that is being used
+            Node n_1 = (truck_select.getSelectionModel().getSelectedItem().getContent());
+
+            //index of the node to be able to insert back into the list and to reference
+            int i = truck_select.getSelectionModel().getSelectedIndex();
+
+            //holds the name of the truck actively having an activity added to it's schedule
+            String truckName = truck_select.getSelectionModel().getSelectedItem().getText();
+            
+            //gets the active table from the user
+            @SuppressWarnings("unchecked") TableView<ScheduleChartObject> t = (
+                    TableView<ScheduleChartObject>) n_1.lookup("#truck_table_" + truckName);
+
+            switch (((ScheduleChartObject) t.getSelectionModel().getSelectedItem()).getCategory()) {
+                case "Start":        
+                    break;
+                case "Pickup":
+
+                    EditPickupForm epf = new EditPickupForm();
+
+                    Scene s;
+
+                    try {
+                        s = epf.form((ScheduleChartObject) t.getSelectionModel().getSelectedItem());
+                        Stage s1 = new Stage();
+                        s1.setScene(s);
+                        s1.showAndWait();
+
+                    } catch (SQLException e1) {
+                        //displays the error encountered to the user, does not allow the window to open
+                        new ErrorWindow(new Stage(), String.valueOf(e1.getErrorCode()), e1.getMessage());
+                    }
+
+                    break;
+                case "Drop Off":
+                    break;
+                case "Travel":
+                    break;
+                case "End":
+                    break;
+                default:
+                    break;
+            }
         };
 
         edit_button.addEventHandler(MouseEvent.MOUSE_CLICKED, edit_event);

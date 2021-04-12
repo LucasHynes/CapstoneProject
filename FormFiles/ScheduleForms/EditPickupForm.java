@@ -7,7 +7,6 @@ import Objects.Truck;
 import Scheduling.DeliveryList;
 import Scheduling.LinearRegression;
 import Scheduling.ScheduleChartObject;
-import Scheduling.ScheduleOptions.Pickup;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -48,7 +47,7 @@ public class EditPickupForm {
      * @return the scene for the window
      * @throws SQLException handles invalid data exceptions
      */
-    public Scene form(Pickup t) throws SQLException {
+    public Scene form(ScheduleChartObject t) throws SQLException {
 
         //table of the open orders for the user to select from and then allows for multiple selections
         TableView<Order> open_order = unassigned_orders_chart();
