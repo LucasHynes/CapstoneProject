@@ -7,6 +7,7 @@ import Objects.Truck;
 import Scheduling.DeliveryList;
 import Scheduling.LinearRegression;
 import Scheduling.ScheduleChartObject;
+import Scheduling.ScheduleOptions.Pickup;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -43,11 +44,11 @@ public class EditPickupForm {
      * Used to return the scene to the user around entering a new pickup for the truck allowing the user to add
      * data to the form to better plan the schedule
      *
-     * @param t the active truck
+     * @param t the active pickup
      * @return the scene for the window
      * @throws SQLException handles invalid data exceptions
      */
-    public Scene form(Truck t) throws SQLException {
+    public Scene form(Pickup t) throws SQLException {
 
         //table of the open orders for the user to select from and then allows for multiple selections
         TableView<Order> open_order = unassigned_orders_chart();
@@ -66,6 +67,7 @@ public class EditPickupForm {
         //text field for the minutes needed for the pickup
         TextField minutes_needed = new TextField();
         minutes_needed.setPromptText("Minutes Needed");
+        
 
         //adds buttons to the window to allow the user to navigate the application
         Button add_button = new Button("Save");
@@ -100,7 +102,7 @@ public class EditPickupForm {
 
                 //checks for null values, filling with the correct values
                 if(list.getTruck() == null) {
-                    list.setTruck(t);
+                    list.setTruck(new Truck());
                 }
 
                 //checks to see if the date has been selected for the pickup
