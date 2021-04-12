@@ -129,7 +129,7 @@ public class EditPickupForm {
 
                         //calculates the minutes needed for the pick up based on linear regression
                         //noinspection unchecked
-                        int min_needed = (int) lr.run(((ArrayList<Double>) p[0]), ((ArrayList<Double>) p[1]), o.getCubes());
+                        @SuppressWarnings("unchecked") int min_needed = (int) lr.run(((ArrayList<Double>) p[0]), ((ArrayList<Double>) p[1]), o.getCubes());
                         
                         date = LocalDate.parse("0000-01-01");
                         min = min_needed;                        
@@ -165,7 +165,7 @@ public class EditPickupForm {
 
                         //calculates the minutes needed for the pick up based on linear regression
                         //noinspection unchecked
-                        int min_needed = (int) lr.run((
+                        @SuppressWarnings("unchecked") int min_needed = (int) lr.run((
                                 (ArrayList<Double>) p[0]), ((ArrayList<Double>) p[1]), o.getCubes());
 
                         //adds the pickup with selected time and calculated minutes needed
