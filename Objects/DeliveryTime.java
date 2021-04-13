@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * the delivery patters
  *
  * @author Lucas Hynes
- * @version 1.0.0
+ * @version 1.2.0
  * @since 2/25/2021
  */
 public class DeliveryTime {
