@@ -359,7 +359,7 @@ public class AddOrderForm {
      * @param dist_name holds the name of the distributor
      * @throws SQLException handles invalid data
      */
-    private void commit(String dist_name, LocalDate date) throws SQLException {
+    @SuppressWarnings("unchecked") private void commit(String dist_name, LocalDate date) throws SQLException {
 
         //pane of the orders being entered
         GridPane pane = getPane();

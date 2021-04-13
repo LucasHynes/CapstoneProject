@@ -227,7 +227,7 @@ public class EditPickupForm {
      *
      * @return the table view in the proper format
      */
-    private TableView<Order> unassigned_orders_chart() {
+    @SuppressWarnings("unchecked") private TableView<Order> unassigned_orders_chart() {
 
         //table view variable to return
         TableView<Order> order_chart = new TableView<>();

@@ -69,11 +69,6 @@ public class Order {
         this.store_front = new StoreFront();
         this.rate = new RateSheet();
         this.status = "Order Placed";
-        this.cubes = cubes;
-        this.weight = weight;
-        this.pieces = pieces;
-        this.merch_price = merch_price;
-        this.notes = notes;
     }
 
     /**
@@ -86,7 +81,6 @@ public class Order {
     /**
      * @param order_id sets the value to the order id
      */
-    @SuppressWarnings("unused")
     public void setOrder_id(int order_id) {
         this.order_id = order_id;
     }
@@ -108,7 +102,6 @@ public class Order {
     /**
      * @return any secondary keys saved if needed
      */
-    @SuppressWarnings("unused")
     public String getSecondary_key() {
         return secondary_key;
     }
@@ -116,7 +109,6 @@ public class Order {
     /**
      * @param secondary_key value is set to the value of the secondary key
      */
-    @SuppressWarnings("unused")
     public void setSecondary_key(String secondary_key) {
         this.secondary_key = secondary_key;
     }
@@ -131,7 +123,6 @@ public class Order {
     /**
      * @param status sets value to the status of the order
      */
-    @SuppressWarnings("unused")
     public void setStatus(String status) {
         this.status = status;
     }

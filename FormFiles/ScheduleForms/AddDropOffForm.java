@@ -104,7 +104,7 @@ public class AddDropOffForm {
         Button ok_button = new Button("OK");
 
         //defines event for the ok button
-        EventHandler<MouseEvent> ok_event = e -> {
+        @SuppressWarnings("unchecked") EventHandler<MouseEvent> ok_event = e -> {
 
             //holds the minutes needed for the drop off
             int minute_needed = 0;

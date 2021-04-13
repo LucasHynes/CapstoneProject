@@ -22,7 +22,7 @@ public class SelectOrderForm {
 
     private final DatabaseAccess dba = new DatabaseAccess();
 
-    public Scene form() {
+    @SuppressWarnings("unchecked") public Scene form() {
         //table view variable to return
         TableView<Order> order_chart = new TableView<>();
 

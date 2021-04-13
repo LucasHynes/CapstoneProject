@@ -91,7 +91,7 @@ public class TravelForm {
         Button ok_button = new Button("OK");
 
         //defines event for the ok button
-        EventHandler<MouseEvent> ok_event = e -> {
+        @SuppressWarnings("unchecked") EventHandler<MouseEvent> ok_event = e -> {
 
             //holds the location variables for the two locations
             double lat_1;

@@ -194,7 +194,7 @@ public class ScheduleForm {
         Button add_button = new Button("Add");
 
         //add the event for the add button
-        EventHandler<MouseEvent> add_event = e -> {
+        @SuppressWarnings("unchecked") EventHandler<MouseEvent> add_event = e -> {
 
             //node to find the tab that is being used
             Node n_1 = (truck_select.getSelectionModel().getSelectedItem().getContent());
@@ -436,7 +436,7 @@ public class ScheduleForm {
             Node n_1 = (truck_select.getSelectionModel().getSelectedItem().getContent());
 
             //index of the node to be able to insert back into the list and to reference
-            int i = truck_select.getSelectionModel().getSelectedIndex();
+            @SuppressWarnings("unused") int i = truck_select.getSelectionModel().getSelectedIndex();
 
             //holds the name of the truck actively having an activity added to it's schedule
             String truckName = truck_select.getSelectionModel().getSelectedItem().getText();
@@ -723,7 +723,7 @@ public class ScheduleForm {
      *
      * @return the structure of the table for the form
      */
-    private TableView<ScheduleChartObject> truck_delivery_chart() {
+    @SuppressWarnings("unchecked") private TableView<ScheduleChartObject> truck_delivery_chart() {
 
         //variable to hold the new table
         TableView<ScheduleChartObject> truck_delivery_list = new TableView<>();
@@ -1073,9 +1073,5 @@ public class ScheduleForm {
      */
     public void setCurrent_date(LocalDate current_date) {
         this.current_date = current_date;
-    }
-
-    private void insert_into(){
-        //TODO use to order change insert new action.
     }
 }

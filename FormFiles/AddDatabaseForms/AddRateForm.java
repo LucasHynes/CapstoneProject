@@ -159,7 +159,7 @@ public class AddRateForm {
      * @param t text field to check
      * @return the int value if available, otherwise 0
      */
-    private int input_int_check(TextField t) {
+    @SuppressWarnings("unused") private int input_int_check(TextField t) {
         if(t.getText().isEmpty()) {
             return 0;
         } else {

@@ -123,7 +123,7 @@ public class AddPickupForm {
 
                         //calculates the minutes needed for the pick up based on linear regression
                         //noinspection unchecked
-                        int min_needed = (int) lr.run((
+                        @SuppressWarnings("unchecked") int min_needed = (int) lr.run((
                                 (ArrayList<Double>) p[0]), ((ArrayList<Double>) p[1]), o.getCubes());
 
                         //adds the pickup with given values
@@ -158,7 +158,7 @@ public class AddPickupForm {
 
                         //calculates the minutes needed for the pick up based on linear regression
                         //noinspection unchecked
-                        int min_needed = (int) lr.run((
+                        @SuppressWarnings("unchecked") int min_needed = (int) lr.run((
                                 (ArrayList<Double>) p[0]), ((ArrayList<Double>) p[1]), o.getCubes());
 
                         //adds the pickup with selected time and calculated minutes needed
@@ -210,7 +210,7 @@ public class AddPickupForm {
      *
      * @return the table view in the proper format
      */
-    private TableView<Order> unassigned_orders_chart() {
+    @SuppressWarnings("unchecked") private TableView<Order> unassigned_orders_chart() {
 
         //table view variable to return
         TableView<Order> order_chart = new TableView<>();

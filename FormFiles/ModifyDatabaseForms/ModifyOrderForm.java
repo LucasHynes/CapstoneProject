@@ -47,7 +47,7 @@ public class ModifyOrderForm {
      * @return the scene to allow the user to navigate the application
      * @throws SQLException handles invalid data
      */
-    public Scene form(Order o) throws SQLException {
+    @SuppressWarnings("unchecked") public Scene form(Order o) throws SQLException {
 
         //sets the label to explain the distributor
         Label distributor_label = new Label("Distributor");
@@ -355,7 +355,7 @@ public class ModifyOrderForm {
      * @param dist_name holds the name of the distributor
      * @throws SQLException handles invalid data
      */
-    private void commit(String dist_name, LocalDate date, Order w) throws SQLException {
+    @SuppressWarnings("unchecked") private void commit(String dist_name, LocalDate date, Order w) throws SQLException {
 
         //pane of the orders being entered
         GridPane pane = getPane();

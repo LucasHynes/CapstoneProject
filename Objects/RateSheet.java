@@ -22,8 +22,6 @@ public class RateSheet {
     private double rate;
     private double minimum;
     private String notes;
-    private String d;
-    private String s;
     private final DatabaseAccess dba = new DatabaseAccess();
 
     /**
@@ -83,7 +81,6 @@ public class RateSheet {
     /**
      * @param rate_id sets the value to the id of the rate
      */
-    @SuppressWarnings("unused")
     public void setRate_id(int rate_id) {
         this.rate_id = rate_id;
     }
@@ -98,7 +95,6 @@ public class RateSheet {
     /**
      * @param distributor_id sets the value to the id of the distributor
      */
-    @SuppressWarnings("unused")
     public void setDistributor_id(int distributor_id) {
         this.distributor_id = distributor_id;
     }
@@ -113,7 +109,6 @@ public class RateSheet {
     /**
      * @param store_front_id sets the value to the id of the store front
      */
-    @SuppressWarnings("unused")
     public void setStore_front_id(int store_front_id) {
         this.store_front_id = store_front_id;
     }
@@ -142,7 +137,6 @@ public class RateSheet {
     /**
      * @param minimum sets the value to the minimum value for the rate
      */
-    @SuppressWarnings("unused")
     public void setMinimum(double minimum) {
         this.minimum = minimum;
     }
