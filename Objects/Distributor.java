@@ -58,7 +58,6 @@ public class Distributor {
     /**
      * @param distributor_id sets the value of the id for the store
      */
-    @SuppressWarnings("unused")
     public void setDistributor_id(int distributor_id) {
         this.distributor_id = distributor_id;
     }
@@ -101,7 +100,6 @@ public class Distributor {
     /**
      * @param city sets to the city of the distributor
      */
-    @SuppressWarnings("unused")
     public void setCity(String city) {
         this.city = city;
     }
@@ -144,7 +142,6 @@ public class Distributor {
     /**
      * @param latitude sets to the latitude value of the distributor
      */
-    @SuppressWarnings("unused")
     public void setLatitude(double latitude) {
         this.latitude = latitude;
     }

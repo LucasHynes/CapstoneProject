@@ -2,10 +2,6 @@ package Objects;
 
 public class Driver {
 
-    /**
-     *
-     */
-    private static final String UNUSED = "unused";
     //internal variables for the class
     private final int driver_id;
     private String driver_name;
@@ -54,7 +50,6 @@ public class Driver {
     /**
      * @return the average time needed per mile traveled for the truck
      */
-    @SuppressWarnings(UNUSED)
     public double getAvg_time_per_dist() {
         return avg_time_per_dist;
     }

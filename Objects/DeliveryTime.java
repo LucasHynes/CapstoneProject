@@ -52,7 +52,6 @@ public class DeliveryTime {
      * @param time_drop_off the date the order arrived
      * @param distance the distance traveled from store front to distributor
      */
-    @SuppressWarnings("unused")
     public DeliveryTime(int delivery_id, StoreFront store_front, Distributor distributor, Truck truck,
                         Order order, LocalDate time_received, LocalDate time_pickup,
                         LocalDate time_drop_off, double distance) {
@@ -72,7 +71,6 @@ public class DeliveryTime {
     /**
      * @return the id of the delivery time object
      */
-    @SuppressWarnings("unused")
     public int getDelivery_id() {
         return delivery_id;
     }
@@ -80,7 +78,6 @@ public class DeliveryTime {
     /**
      * @param delivery_id sets the id to this delivery object's id
      */
-    @SuppressWarnings("unused")
     public void setDelivery_id(int delivery_id) {
         this.delivery_id = delivery_id;
     }
@@ -102,7 +99,6 @@ public class DeliveryTime {
     /**
      * @param time_pickup method to set the date of the pick up for the object
      */
-    @SuppressWarnings("unused")
     public void setTime_pickup(LocalDate time_pickup) {
         this.time_pickup = time_pickup;
     }
@@ -145,7 +141,6 @@ public class DeliveryTime {
     /**
      * @param store_front sets the store the order goes to
      */
-    @SuppressWarnings("unused")
     public void setStore_front(StoreFront store_front) {
         this.store_front = store_front;
     }
@@ -202,7 +197,6 @@ public class DeliveryTime {
     /**
      * @param driver the driver who transports the orders
      */
-    @SuppressWarnings("unused")
     public void setDriver(Driver driver) {
         this.driver = driver;
     }

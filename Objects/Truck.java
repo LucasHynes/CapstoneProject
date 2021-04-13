@@ -66,7 +66,6 @@ public class Truck {
     /**
      * @return the average time needed to go 1 mile
      */
-    @SuppressWarnings("unused")
     public double getAvg_time_per_dist() {
         return avg_time_per_dist;
     }
@@ -81,7 +80,6 @@ public class Truck {
     /**
      * @return the max amount of cubes for the truck
      */
-    @SuppressWarnings("unused")
     public double getMax_cubes() {
         return 1400.00;
     }
@@ -89,7 +87,6 @@ public class Truck {
     /**
      * @return the max amount of weight for the truck
      */
-    @SuppressWarnings("unused")
     public double getMax_weight() {
         return 7000.00;
     }

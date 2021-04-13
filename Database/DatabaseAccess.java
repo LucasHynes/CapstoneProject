@@ -390,7 +390,6 @@ public class DatabaseAccess {
      * @return the list of delivery times
      * @throws SQLException handles invalid data points
      */
-    @SuppressWarnings("unused")
     public ArrayList<DeliveryTime> get_delivery_times() throws SQLException {
         //attempts the connection to the server, calling a SQL statement to retrieve the orders placed,
         // and not yet picked up
@@ -632,7 +631,6 @@ public class DatabaseAccess {
      * @return the receipt object
      * @throws SQLException handles the invalid data points
      */
-    @SuppressWarnings("unused")
     public Receipt get_receipt_based_id(int id) throws SQLException {
 
         //retrieves all receipt objects through method call
@@ -660,7 +658,6 @@ public class DatabaseAccess {
      * @return the delivery time object
      * @throws SQLException handles invalid data input
      */
-    @SuppressWarnings("unused")
     public DeliveryTime get_delivery_time_based_id(int id) throws SQLException {
         //NOTE: because there is ~2 delivery time per order, the same method is applied as with the
         //get_order_based_id for same reasons of effective resource management

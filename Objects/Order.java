@@ -242,7 +242,6 @@ public class Order {
     /**
      * @return the name of the distributor
      */
-    @SuppressWarnings("unused")
     public String getDistributor_name() {
         return distributor_name;
     }
@@ -257,7 +256,6 @@ public class Order {
     /**
      * @return the name of the store front
      */
-    @SuppressWarnings("unused")
     public String getStore_front_name() {
         return store_front_name;
     }
