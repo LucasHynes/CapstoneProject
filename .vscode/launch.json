@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch input",
+            "request": "launch",
+            "mainClass": "PDFinput.input",
+            "projectName": "CapstoneProject_7de51ad7"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
