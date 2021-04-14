@@ -8,7 +8,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 
 public class input {
-     public static void inputPdf(String filename) {
+     @SuppressWarnings("unused") public static void inputPdf(String filename) {
 
         PDDocument pdf = null;
          try {
