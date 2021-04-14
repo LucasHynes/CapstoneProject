@@ -2,7 +2,6 @@ package PDFinput;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -21,15 +20,13 @@ public class input {
 
         PDPage p = pdf.getPage(1);
 
-        try {
-            System.out.println(p.getContents());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-     }
+        /*
+         * Loop through the page data returned by page, adding
+         * the orders to the database through new Order() calls 
+        */    
+    }
 
      public static void main(String[] args){
-         inputPdf("C:\\Users\\firef\\Downloads");
+         inputPdf("");
      }
 }
