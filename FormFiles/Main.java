@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -33,6 +34,14 @@ import java.sql.SQLException;
  */
 public class Main extends Application {
 
+    private Image ordersImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-box-100.png");
+    private Image receiptsImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-add-receipt-100.png");
+    private Image driversImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-box-100.png");
+    private Image invoiceImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-invoice-100.png");
+    private Image locationImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-location-100.png");
+    private Image scheduleImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-schedule-100.png");
+    private Image truckImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-truck-100.png");
+    private Image reportImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-report-file-100.png");
     /**
      * Launches the window for the application showing the user the options available to use the
      * application
