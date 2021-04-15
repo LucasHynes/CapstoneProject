@@ -20,13 +20,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
- * Used to add a drop off to the trucks schedule through a user interface to display the information. Based on trucks
+ * Used to edit a list of drop offs to the trucks schedule through a user interface to display the information. Based on trucks
  * current location and the list of packages currently associated with the trucks to figure out which orders need to be
- * dropped off. Only works with the order's target location being the current location of the truck
+ * dropped off. Only works with the order's target location being the current location of the truck, user can only change limited
+ * information for the drop off.
  *
  * @author Lucas Hynes
  * @version 1.0.0
- * @since 2/24/2021
+ * @since 4/15/2021
  */
 public class EditDropOffForm {
 
@@ -43,12 +44,20 @@ public class EditDropOffForm {
     private LocalDate date;
 
     /**
-     * Used to return the scene allowing the user to see which orders would be getting dropped off and then
-     * entering the estimated amount of time it would take to drop off the amount of material being dropped off
+     * Use of the list is to be made before the method call, if there is only 1 value (most likely) still have in 
+     * an ArrayList with just the one object. Objects in the list are going to the same location and
+     * have not been dropped off yet
      *
      * @return the scene allowing the user to see and enter information about the drop off
      */
-    public Scene form(ScheduleChartObject dropoff) {
+    public Scene form(ArrayList<ScheduleChartObject> dropoffs) {
+    
+        if(dropoffs.size() < 1) {  
+            //displays errors encountered with details
+            new ErrorWindow(new Stage(), "Attempt to edit drop off with no associated orders", "Please note this is " +
+            "flagged when the method value returns the size of the list to be less than 1. Please make sure that the " +
+            "order has not already been dropped off before this event.");
+        }
 
         //defines the grid to hold the elements of the window
         GridPane layout = new GridPane();
@@ -60,16 +69,16 @@ public class EditDropOffForm {
         layout.add(dropOffLabel, 0, 0, 1, 1);
 
         // defines the text field for user input
-        TextField minutes_needed = new TextField();
+        TextField minutes_needed = new TextField(String.valueOf(dropoffs.get(0).getMinutes()));
 
         //label to help user understand
-        Label minutes_label = new Label(String.valueOf(dropoff.getMinutes()));
+        Label minutes_label = new Label("Minutes needed:");
 
         //count of the rows in the grid pane
         int count = 1;
 
         //list of the orders associated with the current location
-        ArrayList<ScheduleChartObject> l = dropOffTable(getTarget_name());
+        ArrayList<ScheduleChartObject> l = dropoffs;
 
         //goes through the returned objects
         for(ScheduleChartObject o:l){
