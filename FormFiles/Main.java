@@ -8,6 +8,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -34,14 +35,14 @@ import java.sql.SQLException;
  */
 public class Main extends Application {
 
-    private Image ordersImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-box-100.png");
-    private Image receiptsImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-add-receipt-100.png");
-    private Image driversImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-box-100.png");
-    private Image invoiceImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-invoice-100.png");
-    private Image locationImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-location-100.png");
-    private Image scheduleImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-schedule-100.png");
-    private Image truckImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-truck-100.png");
-    private Image reportImage = new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-report-file-100.png");
+    private ImageView ordersImage = new ImageView(new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-box-100.png"));
+    private ImageView receiptsImage = new ImageView(new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-add-receipt-100.png"));
+    private ImageView driversImage = new ImageView(new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-box-100.png"));
+    private ImageView invoiceImage = new ImageView(new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-invoice-100.png"));
+    private ImageView locationImage = new ImageView(new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-location-100.png"));
+    private ImageView scheduleImage = new ImageView(new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-schedule-100.png"));
+    private ImageView truckImage = new ImageView(new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-truck-100.png"));
+    private ImageView reportImage = new ImageView(new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-report-file-100.png"));
     /**
      * Launches the window for the application showing the user the options available to use the
      * application
@@ -61,8 +62,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
 
         //button for user to add an order to the database
-        Button editOrderButton = new Button("Edit Orders");
-
+        Button editOrderButton = new Button();
+        editOrderButton.setGraphic(ordersImage);
         //event for the add order button
         EventHandler<MouseEvent> editOrderEvent = e -> {
 
@@ -76,6 +77,7 @@ public class Main extends Application {
 
             //sets the title for the page and displays
             s.setTitle("Edit Order");
+            s.getIcons().add(new Image("FormFiles\\ImageFiles\\IconImage\\Carrier3TransportLogo.png"));
             s.showAndWait();
         };
 
@@ -87,7 +89,8 @@ public class Main extends Application {
         editOrderButton.setPrefHeight(40);
 
         //button to add the receipts to the database
-        Button editReceiptButton = new Button("Edit Receipts");
+        Button editReceiptButton = new Button();
+        editReceiptButton.setGraphic(receiptsImage);
 
         //event for the add receipt button
         EventHandler<MouseEvent> editReceiptEvent = e -> {
@@ -102,6 +105,7 @@ public class Main extends Application {
 
             //sets the title for the page and displays
             s.setTitle("Edit Receipts");
+            s.getIcons().add(new Image("FormFiles\\ImageFiles\\IconImage\\Carrier3TransportLogo.png"));
             s.showAndWait();
         };
 
@@ -113,7 +117,8 @@ public class Main extends Application {
         editReceiptButton.setPrefHeight(40);
 
         //button to schedule the week and apply to the database
-        Button scheduleButton = new Button("Schedule");
+        Button scheduleButton = new Button();
+        scheduleButton.setGraphic(scheduleImage);
 
         //event for the scheduling of the week
         EventHandler<MouseEvent> scheduleEvent = e -> {
@@ -134,6 +139,7 @@ public class Main extends Application {
 
             //sets the title for the page and displays
             s.setTitle("Schedule");
+            s.getIcons().add(new Image("FormFiles\\ImageFiles\\IconImage\\Carrier3TransportLogo.png"));
             s.showAndWait();
         };
 
@@ -145,7 +151,8 @@ public class Main extends Application {
         scheduleButton.setPrefHeight(40);
 
         //button to add the location to the database
-        Button editLocationButton = new Button("Edit Locations");
+        Button editLocationButton = new Button();
+        editLocationButton.setGraphic(locationImage);
 
         //event for adding the location
         EventHandler<MouseEvent> editLocationEvent = e -> {
@@ -161,6 +168,7 @@ public class Main extends Application {
 
             //sets the title for the page and displays
             s.setTitle("Add Location");
+            s.getIcons().add(new Image("FormFiles\\ImageFiles\\IconImage\\Carrier3TransportLogo.png"));
             s.showAndWait();
         };
 
@@ -172,7 +180,8 @@ public class Main extends Application {
         editLocationButton.setPrefHeight(40);
 
         //button to view and download reports from the database
-        Button reportButton = new Button("Reports");
+        Button reportButton = new Button();
+        reportButton.setGraphic(reportImage);
 
         //event handle for the button
         EventHandler<MouseEvent> reportEvent = e -> {
@@ -195,6 +204,7 @@ public class Main extends Application {
 
             //sets the title for the page and displays
             s.setTitle("Reports");
+            s.getIcons().add(new Image("FormFiles\\ImageFiles\\IconImage\\Carrier3TransportLogo.png"));
             s.showAndWait();
         };
 
@@ -206,7 +216,8 @@ public class Main extends Application {
         reportButton.setPrefHeight(40);
 
         //button to add a driver to the database
-        Button editDriverButton = new Button("Edit Drivers");
+        Button editDriverButton = new Button();
+        editDriverButton.setGraphic(driversImage);
 
         //event handle for the button
         EventHandler<MouseEvent> editDriverEvent = e -> {
@@ -222,6 +233,7 @@ public class Main extends Application {
 
             //sets the title for the page and displays
             s.setTitle("Select Driver");
+            s.getIcons().add(new Image("FormFiles\\ImageFiles\\IconImage\\Carrier3TransportLogo.png"));
             s.showAndWait();
         };
 
@@ -233,7 +245,8 @@ public class Main extends Application {
         editDriverButton.setPrefHeight(40);
 
         //button to add a truck to the database
-        Button selectTruckButton = new Button("Edit Trucks");
+        Button selectTruckButton = new Button();
+        selectTruckButton.setGraphic(truckImage);
 
         //event handle for the button
         EventHandler<MouseEvent> selectTruckEvent = e -> {
@@ -248,6 +261,7 @@ public class Main extends Application {
 
             //sets the title for the page and displays
             s.setTitle("Select Truck");
+            s.getIcons().add(new Image("FormFiles\\ImageFiles\\IconImage\\Carrier3TransportLogo.png"));
             s.showAndWait();
         };
 
@@ -259,8 +273,8 @@ public class Main extends Application {
         selectTruckButton.setPrefHeight(40);
 
         //button to add a rate to the database
-        Button editRateButton = new Button("Edit Rates");
-
+        Button editRateButton = new Button();
+        editRateButton.setGraphic(invoiceImage);
         //event handle for the button
         EventHandler<MouseEvent> editRateEvent = e -> {
 
@@ -274,6 +288,7 @@ public class Main extends Application {
 
             //sets the title for the page and displays
             s.setTitle("Edit Rate");
+            s.getIcons().add(new Image("FormFiles\\ImageFiles\\IconImage\\Carrier3TransportLogo.png"));
             s.showAndWait();
         };
 
@@ -305,6 +320,7 @@ public class Main extends Application {
         //displays the scene on the stage, setting the correct name
         primaryStage.setScene(new Scene(gp));
         primaryStage.setTitle("Trucking Logistics Application");
+        primaryStage.getIcons().add(new Image("FormFiles\\ImageFiles\\IconImage\\Carrier3TransportLogo.png"));
         primaryStage.show();
     }
 }

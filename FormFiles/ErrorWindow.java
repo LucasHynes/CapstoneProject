@@ -5,6 +5,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -29,7 +30,9 @@ public class ErrorWindow {
 
         //sets and shows the scene returned through the method
         s.setScene(errorWindow(errorMessage, errorDetails));
+        s.getIcons().add(new Image("FormFiles\\ImageFiles\\IconImage\\Carrier3TransportLogo.png"));
         s.show();
+        s.toFront();
     }
 
     /**

@@ -26,7 +26,7 @@ public class DatabaseAccess {
     private static final String userName = "admin";
     private static final String password = "fleetadmiral";
     //to use in case of database access failure: allowPublicKeyRetrieval=true&
-    private static final String url = "jdbc:mysql://localhost:3306/fleetdata?useSSL=false";
+    private static final String url = "jdbc:mysql://localhost:3306/fleetdata?allowPublicKeyRetrieval=true&useSSL=false";
 
     /**
      * Gets the open orders in the database that need to be added to the trucks
@@ -342,7 +342,7 @@ public class DatabaseAccess {
                 open_orders.add(new Order(rs.getInt("Order_ID"),
                         rs.getString("PK_From_Company"), rs.getString("Key_2"),
                         get_distributor_based_id(rs.getInt("Distributor_ID")),
-                        get_store_front_based_id(rs.getInt("Store Front_ID")),
+                        get_store_front_based_id(rs.getInt("StoreFront_ID")),
                         get_rate_based_id(rs.getInt("Rate_ID")), rs.getDouble("Cubes"),
                         rs.getDouble("Weight"), rs.getDouble("Pieces"),
                         rs.getDouble("Merch_Price"), rs.getString("Notes")));
