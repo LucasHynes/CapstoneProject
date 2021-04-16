@@ -35,6 +35,7 @@ import java.sql.SQLException;
  */
 public class Main extends Application {
 
+    //Import of the images used for the main menu of the application
     private ImageView ordersImage = new ImageView(new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-box-100.png"));
     private ImageView receiptsImage = new ImageView(new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-add-receipt-100.png"));
     private ImageView driversImage = new ImageView(new Image("FormFiles\\ImageFiles\\MainMenuImages\\icons8-box-100.png"));
